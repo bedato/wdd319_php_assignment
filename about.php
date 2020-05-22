@@ -22,13 +22,7 @@ if ($conn === false) {
 <body>
     <div class="container">
         <?php include('layouts/nav.php'); ?>
-
-        <?php include('layouts/header.php'); ?>
-
-        <?php include('layouts/recommended.php'); ?>
     </div>
-
-    <?php include('layouts/main.php'); ?>
 
     <!-- /.container -->
     <?php include('layouts/footer.php'); ?>
