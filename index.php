@@ -1,13 +1,19 @@
 <?php
 
 require_once('includes/config.inc.php');
-
+require_once('includes/nav.inc.php'); // array  with nav data
 //require_once('includes/functions.inc.php');
 
 $conn = mysqli_connect(DBSERVER, DBUSER, DBPASSWORT, DBNAME);
 
 if ($conn === false) {
     die('Verbindung zur Datenbank fehlgeschlagen: ' . mysqli_connect_error());
+}
+
+// Page controle
+$page = 'home';
+if (!empty($_GET['page'])) {
+    $page = $_GET['page'];
 }
 ?>
 
