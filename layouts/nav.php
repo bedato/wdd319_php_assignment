@@ -5,19 +5,20 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Blog</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/about.php">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/contact.php">Contact</a>
-            </li>
+            <?php foreach ($mainNav as $navItem) {
+                $menuStatus = '';
+                if ($page == $navItem['link']) {
+                    $menuStatus = 'active';
+                }
+            ?>
+                <li class="nav-item <?php echo $menuStatus; ?>">
+                    <a class="nav-link" href="index.php?page=<?php echo $navItem['link']; ?>"><?php echo $navItem['title']; ?></a>
+                </li>
+            <?php } ?>
         </ul>
-        <form class="form-inline mt-2 mt-md-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline mt-2 mt-md-0" action="index.php?page=search" method="POST">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="submit-search">Search</button>
         </form>
     </div>
 </nav>
