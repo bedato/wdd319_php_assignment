@@ -14,7 +14,7 @@ $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
 
 
 
-<main role="main" class="container">
+<main role="main" class="container bg-white p-5">
     <div class="row">
         <?php
         // Main Content ist abhängig von dem GET Parameter "page":

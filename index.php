@@ -25,7 +25,7 @@ if (!empty($_GET['page'])) {
     <?php include('layouts/head.php'); ?>
 </head>
 
-<body>
+<body class="bg-info">
     <div class="container">
         <?php include('layouts/nav.php'); ?>
 

@@ -12,8 +12,9 @@ $getRecStory = mysqli_fetch_all($resRec, MYSQLI_ASSOC);
 
 ?>
 
-<?php foreach ($getRecStory as $datensatz) { ?>
-    <div class="row mb-2">
+
+<div class="row mb-2">
+    <?php foreach ($getRecStory as $datensatz) { ?>
         <div class="col-md-6">
             <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
@@ -26,5 +27,5 @@ $getRecStory = mysqli_fetch_all($resRec, MYSQLI_ASSOC);
                 <!-- <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"> -->
             </div>
         </div>
-    </div>
-<?php } ?>
+    <?php } ?>
+</div>
