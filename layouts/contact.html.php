@@ -1,35 +1,39 @@
-<?php
+<div class="col-md-8">
+    <!-- Default form contact -->
+    <form class="text-center border border-light p-5" action="#!">
 
-require_once('includes/config.inc.php');
+        <p class="h4 mb-4">Contact us</p>
 
-//require_once('includes/functions.inc.php');
+        <!-- Name -->
+        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
 
-$conn = mysqli_connect(DBSERVER, DBUSER, DBPASSWORT, DBNAME);
+        <!-- Email -->
+        <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
 
-if ($conn === false) {
-    die('Verbindung zur Datenbank fehlgeschlagen: ' . mysqli_connect_error());
-}
-?>
+        <!-- Subject -->
+        <label>Subject</label>
+        <select class="browser-default custom-select mb-4">
+            <option value="" disabled>Choose option</option>
+            <option value="1" selected>Feedback</option>
+            <option value="2">Report a bug</option>
+            <option value="3">Feature request</option>
+            <option value="4">Feature request</option>
+        </select>
 
+        <!-- Message -->
+        <div class="form-group">
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+        </div>
 
-<!doctype html>
-<html lang="en">
+        <!-- Copy -->
+        <div class="custom-control custom-checkbox mb-4">
+            <input type="checkbox" class="custom-control-input" id="defaultContactFormCopy">
+            <label class="custom-control-label" for="defaultContactFormCopy">Send me a copy of this message</label>
+        </div>
 
-<head>
-    <?php include('layouts/head.php'); ?>
-</head>
+        <!-- Send button -->
+        <button class="btn btn-info btn-block" type="submit">Send</button>
 
-<body>
-    <div class="container">
-        <?php include('layouts/nav.php'); ?>
-    </div>
-
-
-    <!-- /.container -->
-    <?php include('layouts/footer.php'); ?>
-
-    <?php include('layouts/jsscripts.php'); ?>
-
-</body>
-
-</html>
+    </form>
+    <!-- Default form contact -->
+</div>
