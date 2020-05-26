@@ -1,14 +1,74 @@
+<?php
+//Form Validation
+
+//Monitor
+// echo '<pre>';
+// print_r($_POST);
+// echo '</pre>';
+
+$readyToSend = true;
+$errormessages = array();
+
+$name = isset($_POST['name']) ? $_POST['name'] : '';
+$email = isset($_POST['email']) ? $_POST['email'] : '';
+$text = isset($_POST['text']) ? $_POST['text'] : '';
+
+if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['text'])) {
+    if (empty($name)) {
+        $errormessages[] = 'Please enter your name';
+        $readyToSend = false;
+    }
+
+    if (empty($email)) {
+        $errormessages[] = 'Please enter your Email adress';
+        $readyToSend = false;
+    }
+
+    if (empty($text)) {
+        $errormessages[] = 'Please enter your message';
+        $readyToSend = false;
+    }
+
+    $validEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+    if ($validEmail == false) {
+        $errormessages[] = 'Please enter a correct mail adress';
+        $readyToSend = false;
+    }
+} else {
+    $readyToSend = false;
+}
+
+//if everything was ok
+
+if ($readyToSend == true) {
+    $successMsg = 'Thank you ' . $name . ', We will process your request and get back to you by this mail: ' . $email;
+}
+
+if (count($errormessages) > 0) {
+    echo implode('<br>', $errormessages);
+}
+
+if (isset($successMsg)) {
+    echo '<br>' . $successMsg;
+}
+
+?>
+
+
+
+
 <div class="col-md-8">
     <!-- Default form contact -->
-    <form class="text-center border border-light p-5" action="#!">
+    <form class="text-center border border-light p-5" method="POST">
 
         <p class="h4 mb-4">Contact us</p>
 
         <!-- Name -->
-        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name">
+        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name" name="name">
 
         <!-- Email -->
-        <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail">
+        <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail" name="email">
 
         <!-- Subject -->
         <label>Subject</label>
@@ -22,7 +82,7 @@
 
         <!-- Message -->
         <div class="form-group">
-            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message"></textarea>
+            <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Message" name="text"></textarea>
         </div>
 
         <!-- Copy -->
@@ -32,7 +92,7 @@
         </div>
 
         <!-- Send button -->
-        <button class="btn btn-info btn-block" type="submit">Send</button>
+        <button class="btn btn-info btn-block" type="submit" value="formSend">Send</button>
 
     </form>
     <!-- Default form contact -->
