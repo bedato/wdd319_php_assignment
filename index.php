@@ -30,8 +30,9 @@ if (!empty($_GET['page'])) {
         <?php include('layouts/nav.php'); ?>
 
         <?php include('layouts/header.php'); ?>
-
-        <?php include('layouts/recommended.php'); ?>
+        <?php if ($page == 'home') {
+            include('layouts/recommended.php');
+        } ?>
     </div>
 
     <?php include('layouts/main.php'); ?>
