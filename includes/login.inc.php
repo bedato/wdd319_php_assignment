@@ -3,9 +3,6 @@ session_name('boardSID');
 session_set_cookie_params(time() + 15 * 60, '/', 'localhost', FALSE, TRUE); // session cookie sichern
 session_start();
 
-// $username = 'terry';
-// $userpw = 'test1234';
-
 // statusvariablen: 
 $error = false;
 $errormessages = array();
