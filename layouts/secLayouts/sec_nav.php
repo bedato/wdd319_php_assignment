@@ -12,7 +12,7 @@
                 }
             ?>
                 <li class="nav-item <?php echo $menuStatus; ?>">
-                    <a class="nav-link" href="index.php?page=<?php echo $navItem['link']; ?>"><?php echo $navItem['title']; ?></a>
+                    <a class="nav-link" href="home.php?page=<?php echo $navItem['link']; ?>"><?php echo $navItem['title']; ?></a>
                 </li>
             <?php } ?>
         </ul>

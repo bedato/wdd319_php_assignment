@@ -18,8 +18,8 @@ $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
     <div class="row">
         <?php
         // Main Content ist abhängig von dem GET Parameter "page":
-        if (is_file('layouts/html/' . $page . '.html.php')) {
-            include('layouts/html/' . $page . '.html.php');
+        if (is_file('layouts/sec_html/' . $page . '.html.php')) {
+            include('layouts/sec_html/' . $page . '.html.php');
         } else {
             echo '<h3>Seite nicht gefunden</h3>';
             echo '<p>Diese Seite existiert (noch) nicht.</p>';
@@ -27,10 +27,11 @@ $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
         ?>
         <!-- /.blog-main -->
 
-        <?php include('aside.php'); ?>
+
         <!-- /.blog-sidebar -->
 
     </div>
+    <?php include('aside.php'); ?>
     <!-- /.row -->
 
 </main>
