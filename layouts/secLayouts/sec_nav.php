@@ -12,13 +12,13 @@
                 }
             ?>
                 <li class="nav-item <?php echo $menuStatus; ?>">
-                    <a class="nav-link" href="index.php?page=<?php echo $navItem['link']; ?>"><?php echo $navItem['title']; ?></a>
+                    <a class="nav-link" href="home.php?page=<?php echo $navItem['link']; ?>"><?php echo $navItem['title']; ?></a>
                 </li>
             <?php } ?>
         </ul>
-        <!-- <form class="form-inline mt-2 mt-md-0" action="index.php?page=search" method="POST">
+        <form class="form-inline mt-2 mt-md-0" action="index.php?page=search" method="POST">
             <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" aria-label="Search">
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit" name="submit-search">Search</button>
-        </form> -->
+        </form>
     </div>
 </nav>
