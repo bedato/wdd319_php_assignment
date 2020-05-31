@@ -24,6 +24,7 @@ if (isset($_POST['username']) && isset($_POST['userpasswort'])) {
         $_SESSION['loginstatus'] = true; // login status
         $_SESSION['timestamp'] = time();
         $_SESSION['userip'] = $_SERVER['REMOTE_ADDR'];
+        $_SESSION['username'] = $username;
 
         // danach umleiten auf app
         // echo '<br>umleiten auf app';

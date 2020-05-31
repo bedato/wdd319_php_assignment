@@ -16,6 +16,8 @@ $page = 'posts';
 if (!empty($_GET['page'])) {
     $page = $_GET['page'];
 }
+
+
 ?>
 
 
