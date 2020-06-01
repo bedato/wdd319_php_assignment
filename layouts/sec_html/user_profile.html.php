@@ -1,0 +1,1 @@
+<h1>Hello <?php $_SESSION['username'] ?></h1>
