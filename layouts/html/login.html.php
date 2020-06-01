@@ -1,4 +1,5 @@
-<?php require_once('includes/login.inc.php'); ?>
+<?php require_once('includes/login.inc.php');
+?>
 
 <div class="col-md-8 my-3" id="login">
     <div class="container">

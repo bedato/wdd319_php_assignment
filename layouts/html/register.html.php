@@ -1,4 +1,5 @@
-<?php require_once('includes/register.inc.php'); ?>
+<?php require_once('includes/register.inc.php');
+?>
 
 <div class="col-md-8 my-3" id="register">
     <div class="container">
