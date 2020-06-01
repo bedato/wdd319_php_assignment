@@ -38,7 +38,7 @@ if (!empty($_GET['page'])) {
         } ?>
     </div>
 
-    <?php include('layouts/main_sec.php'); ?>
+    <?php include('layouts/sec_html/main_sec.php'); ?>
 
     <!-- /.container -->
     <?php include('layouts/footer.php'); ?>
