@@ -27,6 +27,7 @@ $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
         ?>
 
     </div>
-    <?php include('aside.php'); ?>
+    <?php //include('secLayouts/sec_aside.php'); 
+    ?>
 
 </main>
