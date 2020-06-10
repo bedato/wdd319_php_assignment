@@ -19,9 +19,9 @@ if (!empty($_GET['page'])) {
 <!doctype html>
 <html lang="en">
 
-<head>
-    <?php include('layouts/head.php'); ?>
-</head>
+
+<?php include('layouts/head.php'); ?>
+
 
 <body class="bg-dark">
     <div class="container">

@@ -5,7 +5,7 @@
             <h2 class="blog-post-title"><?php echo $datensatz['title']; ?></h2>
             <p class="blog-post-meta"><?php echo $datensatz['date'];
                                         echo $datensatz['author']; ?></p>
-            <p><?php echo $datensatz['content']; ?></p>
+            <p><?php echo substr($datensatz['content'], 2) . "..."; ?></p>
         </div>
         <div class="comment">
             <h5>John Wick</h5>

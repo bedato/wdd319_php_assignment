@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text&family=Pavanam&display=swap");
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url("https://source.unsplash.com/xrVDYZRGdw4/1920x1080");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "Crimson Text", serif;
+    letter-spacing: 2px;
+    text-shadow: 5px 4px 4px #000000;
+}

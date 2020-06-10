@@ -1,4 +1,3 @@
-
 <?php
 // Unset all of the session variables.
 $_SESSION = array();
@@ -21,5 +20,3 @@ if (ini_get("session.use_cookies")) {
 session_destroy();
 // redirect to home page
 header("Location: index.php");
-
-?>
