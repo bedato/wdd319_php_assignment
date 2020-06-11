@@ -24,11 +24,16 @@ Passwort Confirm:
     $readyToSend = true;
     $errormsg = [];
     $illegal = "#$%^&*()+=-[]';,./{}|:<>?~";
+    $pwRegex = "^(?=.*\d)(?=.*[a-zA-Z])(?!.*[\W_\x7B-\xFF]).{6,15}$^";
 
     $inputUsername = isset($_POST['username']) ? $_POST['username'] : '';
     $inputEmail = isset($_POST['email']) ? $_POST['email'] : '';
     $inputPassword = isset($_POST['password']) ? $_POST['password'] : '';
     $inputPasswordConfirm = isset($_POST['confirm_password']) ? $_POST['confirm_password'] : '';
+    sanitizer($inputUsername);
+    sanitizer($inputEmail);
+    sanitizer($inputPassword);
+    sanitizer($inputPasswordConfirm);
 
 
     if (isset($_POST['username']) && isset($_POST['email']) && isset($_POST['password'])  && isset($_POST['confirm_password'])) {
@@ -79,8 +84,8 @@ Passwort Confirm:
             $readyToSend = false;
         }
 
-        if (strlen($_POST['password']) < 8) {
-            $errormsg[] = 'Your Password need atleast 8 characters';
+        if (!preg_match($pwRegex, $_POST['password'])) {
+            $errormsg[] = 'Password must include atleast 6 characters including atleast 1 digit!';
             $readyToSend = false;
         }
 
@@ -93,6 +98,8 @@ Passwort Confirm:
             $errormsg[] = 'confirm must match password!';
             $readyToSend = false;
         }
+
+        $pw = password_hash($_POST['password'], PASSWORD_DEFAULT);
     } else {
         $readyToSend = false;
     }
@@ -100,11 +107,14 @@ Passwort Confirm:
     if ($readyToSend == true) {
         // Success (speichern/versenden/dankesmeldung)
         $successmessage = 'Thank you very much for your Registration! you will get a confirmation mail with your credentials';
-        $sql = "INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES (NULL, '" . $_POST['username'] . "', '" . $_POST['password'] . "', '" . $_POST['email'] . "');";
-        if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
+        $sql = "INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES (NULL, ?, ?, ?);";
+
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            echo "SQL error";
         } else {
-            echo "Error: " . $sql . "" . mysqli_error($conn);
+            mysqli_stmt_bind_param($stmt, "sss", $_POST['username'], $pw, $_POST['email']);
+            mysqli_stmt_execute($stmt);
         }
 
         $message = 'Thank you for Your Registration! your Email: ' . $_POST['email'] . ' Your Username: ' . $_POST['email'] . '<br> Thank you for your Registration';
