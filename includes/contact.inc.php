@@ -13,6 +13,10 @@ $name = isset($_POST['name']) ? $_POST['name'] : '';
 $email = isset($_POST['email']) ? $_POST['email'] : '';
 $text = isset($_POST['text']) ? $_POST['text'] : '';
 $subject = isset($_POST['subject']) ? $_POST['subject'] : '';
+sanitizer($name);
+sanitizer($email);
+sanitizer($text);
+sanitizer($subject);
 
 if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['text'])) {
     if (empty($name)) {
@@ -59,14 +63,14 @@ if ($readyToSend === true && count($errormessages) > 0) {
     $empfaenger = 't.m.rvle@gmail.com';
     $betreff = 'Kontaktanfrage von training.bytekultur.net';
     $text = '<html>' . nl2br($text) . '</html>';
-    $headers = "From: mailer@bytekultur.net \n";
+    $headers = "From: kyomiru@gmail.com \n";
     $headers .= "Reply-To: <" . $email . ">\n";
     $headers .=  "Content-Type: text/html; charset='ISO-8859-1'";
 
+    mb_send_mail($empfaenger, $betreff, $text, $headers);
+    // echo '<pre>';
+    // echo $headers;
+    // echo '</pre>';
 
-    echo '<pre>';
-    echo $headers;
-    echo '</pre>';
-
-    // $mailsent = mail($empfaenger, $betreff, $nachricht, $headers);
+    //$mailsent = mail($empfaenger, $betreff, $nachricht, $headers);
 }

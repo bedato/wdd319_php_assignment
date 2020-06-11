@@ -7,14 +7,14 @@
         <p class="h4 mb-4">Contact us</p>
 
         <!-- Name -->
-        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name" name="name">
+        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="Name" name="name" value="<?= $name ?>">
 
         <!-- Email -->
-        <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail" name="email">
+        <input type="email" id="defaultContactFormEmail" class="form-control mb-4" placeholder="E-mail" name="email" value="<?= $email ?>">
 
         <!-- Subject -->
         <label>Subject</label>
-        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="ex. Feedback" name="subject">
+        <input type="text" id="defaultContactFormName" class="form-control mb-4" placeholder="ex. Feedback" name="subject" value="<?= $subject ?>">
 
         <!-- Message -->
         <div class="form-group">
