@@ -9,31 +9,51 @@ $errormessages = array();
 
 // formular abgeschickt?
 
-if (isset($_POST['username']) && isset($_POST['userpasswort'])) {
+if (isset($_POST['username']) && isset($_POST['userpasswort']) && isset($_POST['submit'])) {
+    $_SESSION['counter']++;
+    if ($_SESSION['counter'] > 2) {
+        header('Location: index.php');
+    }
 
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['userpasswort']);
-
-    $resultLog = $conn->query("SELECT * FROM users WHERE username='" . $username . "' AND password='" . $password . "'");
-
-    // ist username aus POST = username aus Variable?
-    // ist pw aus POST = pw aus Variable?
-    if (mysqli_num_rows($resultLog)) {
-        // wenn ja, dann session erstellen: login status, timestamp, IP-Adresse (REMOTE_ADDR)
-        // echo '<br>login erfolgreich';
-        $_SESSION['loginstatus'] = true; // login status
-        $_SESSION['timestamp'] = time();
-        $_SESSION['userip'] = $_SERVER['REMOTE_ADDR'];
-        $_SESSION['username'] = $username;
-
-        // danach umleiten auf app
-        // echo '<br>umleiten auf app';
-        header("Location: home.php");
-        exit;
+    sanitizer($username);
+    sanitizer($password);
+    $pwDb = "SELECT password FROM users WHERE username = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $pwDb)) {
+        echo "SQL statement failed";
     } else {
-        $error = true;
-        $errormessages[] = 'Username oder Passwort nicht korrekt';
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        $row = mysqli_fetch_assoc($result);
+        $hash = $row['password'];
+
+        $decrypt = password_verify($password, $hash);
+
+        // ist username aus POST = username aus Variable?
+        // ist pw aus POST = pw aus Variable?
+        if ($decrypt) {
+            // wenn ja, dann session erstellen: login status, timestamp, IP-Adresse (REMOTE_ADDR)
+            // echo '<br>login erfolgreich';
+            $_SESSION['loginstatus'] = true; // login status
+            $_SESSION['timestamp'] = time();
+            $_SESSION['userip'] = $_SERVER['REMOTE_ADDR'];
+            $_SESSION['username'] = $username;
+
+            // danach umleiten auf app
+            // echo '<br>umleiten auf app';
+            header("Location: home.php");
+            exit;
+        } else {
+            $error = true;
+            $errormessages[] = 'Username oder Passwort nicht korrekt';
+        }
     }
+} else {
+    $_SESSION['counter'] = 0;
 }
 
 // Session array monitor fürs debugging:

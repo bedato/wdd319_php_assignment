@@ -10,13 +10,13 @@
                         <h3 class=" text-info my-3">Register</h3>
                         <div class="form-group">
                             <label for="input_username" class="text-info">Username:</label><br>
-                            <input type="text" name="username" id="username" class="form-control">
+                            <input type="text" name="username" id="username" class="form-control" value="<?= $inputUsername ?>"">
                         </div>
-                        <div class="form-group">
+                        <div class=" form-group">
                             <label for="input_username" class="text-info">Email:</label><br>
-                            <input type="text" name="email" id="email" class="form-control">
+                            <input type="text" name="email" id="email" class="form-control" value="<?= $inputEmail ?>"">
                         </div>
-                        <div class="form-group">
+                        <div class=" form-group">
                             <label for="input_pw" class="text-info">Password:</label><br>
                             <input type="password" name="password" id="password" class="form-control">
                         </div>
