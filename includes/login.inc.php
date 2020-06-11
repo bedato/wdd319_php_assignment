@@ -17,8 +17,6 @@ if (isset($_POST['username']) && isset($_POST['userpasswort']) && isset($_POST['
 
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['userpasswort']);
-    sanitizer($username);
-    sanitizer($password);
     $pwDb = "SELECT password FROM users WHERE username = ?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $pwDb)) {

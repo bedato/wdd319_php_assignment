@@ -3,7 +3,7 @@
 require_once('includes/config.inc.php');
 require_once('includes/loggedInStatus.inc.php');
 require_once('includes/navLogged.inc.php'); // array  with nav data
-//require_once('includes/functions.inc.php');
+require_once('includes/functions/functions.inc.php');
 
 $conn = mysqli_connect(DBSERVER, DBUSER, DBPASSWORT, DBNAME);
 
@@ -16,8 +16,6 @@ $page = 'posts';
 if (!empty($_GET['page'])) {
     $page = $_GET['page'];
 }
-
-
 ?>
 
 
@@ -34,7 +32,7 @@ if (!empty($_GET['page'])) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <title>Web Blog!</title>
-    </head>
+</head>
 
 
 <body class="bg-info">
