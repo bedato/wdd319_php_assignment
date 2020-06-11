@@ -6,7 +6,15 @@ $errormsgs = [];
 if (isset($_POST['delete_user'])) {
 
     $insert_user = mysqli_real_escape_string($conn, $_POST['delete_user']);
-    $actual_user = $conn->query("SELECT * FROM users WHERE username='.$current_user.'");
+    $actual_user = "SELECT * FROM users WHERE username=?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $actual_user)) {
+        echo "SQL statement failed";
+    } else {
+        mysqli_stmt_bind_param($stmt, "s", $current_user);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+    }
 
     if (empty($del_username)) {
         $purge = false;
@@ -15,7 +23,7 @@ if (isset($_POST['delete_user'])) {
 
     if (!$insert_user == $actual_user) {
         $purge = false;
-        $errormsgs[] = 'The inserted username dose not match';
+        $errormsgs[] = 'The inserted username does not match';
     }
 } else {
     $purge = false;

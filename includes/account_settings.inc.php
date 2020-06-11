@@ -80,21 +80,33 @@ if (isset($_POST['old_pw']) && isset($_POST['new_pw'])) {
     $pw_old = mysqli_real_escape_string($conn, $_POST['old_pw']);
     $pw_new = mysqli_real_escape_string($conn, $_POST['new_pw']);
 
-    $resultPw = $conn->query("SELECT * FROM users WHERE password='" . $pw_old . "'");
+    $resultPw = "SELECT password FROM users WHERE username = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $resultPw)) {
+        echo 'SQL statement failed';
+    } else {
+        mysqli_stmt_bind_param($stmt, "s", $current_username);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
-    if (empty($old_pw_input)) {
-        $error_msgs[] = 'Please enter your old password';
-        $submitNewPw = false;
-    }
+        $row = mysqli_fetch_assoc($result);
+        $hash = $row['password'];
+        $decrypt = password_verify($password, $hash);
 
-    if (empty($new_pw_input)) {
-        $error_msgs[] = 'Please enter your new password';
-        $submitNewPw = false;
-    }
+        if (empty($old_pw_input)) {
+            $error_msgs[] = 'Please enter your old password';
+            $submitNewPw = false;
+        }
 
-    if (!$_POST['old_pw'] == $resultPw) {
-        $errormsg[] = 'old Password incorrect!';
-        $readyToSend = false;
+        if (empty($new_pw_input)) {
+            $error_msgs[] = 'Please enter your new password';
+            $submitNewPw = false;
+        }
+
+        if (!$_POST['old_pw'] == $decrypt) {
+            $errormsg[] = 'old Password incorrect!';
+            $readyToSend = false;
+        }
     }
 } else {
     $submitNewPw = false;
@@ -102,7 +114,8 @@ if (isset($_POST['old_pw']) && isset($_POST['new_pw'])) {
 
 if ($submitNewPw == true) {
     $successmsg = 'Thank you! your password changed!';
-    $sql = "UPDATE `users` SET `password` = '" . $pw_new . "' WHERE `users` . `username` = '" . $current_username . "'";
+    $npw = password_hash($pw_new, PASSWORD_DEFAULT);
+    $sql = "UPDATE `users` SET `password` = '" . $npw . "' WHERE `users` . `username` = '" . $current_username . "'";
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
     } else {
