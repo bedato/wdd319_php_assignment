@@ -6,10 +6,9 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    font-family: "Crimson Text", serif;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
 }
 
-button {
-    font-family: "Crimson Text", serif;
+.profilepic {
+    height: 30rem;
 }
