@@ -35,7 +35,7 @@ if (!empty($_GET['page'])) {
 </head>
 
 
-<body class="bg-info">
+<body class="bg-dark">
     <div class="container">
         <?php include('layouts/secLayouts/sec_nav.php'); ?>
 
