@@ -25,7 +25,7 @@ if (!empty($_GET['page'])) {
 
 
 <body class="bg-dark">
-    <div class="container">
+    <div class="container-fluid">
         <?php include('layouts/nav.php'); ?>
         <?php if ($page == 'welcome') {
             include('layouts/header.php');
