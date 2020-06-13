@@ -13,18 +13,18 @@ $getRecStory = mysqli_fetch_all($resRec, MYSQLI_ASSOC);
 ?>
 
 
-<div class="row mb-2">
+<div class="row my-5">
     <?php foreach ($getRecStory as $datensatz) { ?>
         <div class="col-md-6">
             <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
-                    <h3 class="mb-0">
-                        <a class="text-dark" href="#"><?php echo $datensatz['title']; ?></a>
+                    <span class="text-muted">Recoomendation</span>
+                    <h3 class="mb-3">
+                        <a class="text-dark" href="home.php?page=article&post_id=<?php echo $datensatz['id']; ?>"><?php echo $datensatz['title']; ?></a>
                     </h3>
-                    <div class="mb-1 text-muted"><?php echo $datensatz['date']; ?></div>
-                    <p class="card-text mb-auto"><?php echo $datensatz['content']; ?></a>
+                    <p class="card-text mb-4"><?php echo $datensatz['content']; ?></a></p>
+                    <div class="mb-1 text-muted font-weight-lighter font-italic"><?php echo $datensatz['date']; ?></div>
                 </div>
-                <!-- <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap"> -->
             </div>
         </div>
     <?php } ?>

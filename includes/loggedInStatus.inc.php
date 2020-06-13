@@ -1,8 +1,8 @@
 <?php
 session_name('boardSID');
-session_set_cookie_params(time() + 15 * 60, '/', 'localhost', FALSE, TRUE);
+session_set_cookie_params(time() + 60 * 60, '/', 'localhost', FALSE, TRUE);
 session_start();
-$session_lifetime = 15;
+$session_lifetime = 60;
 
 // echo '<pre>';
 // print_r($_SESSION);
@@ -28,6 +28,6 @@ if ($loginstatus == true && $gleicheIP == true && $nochAktiv == true) {
     session_regenerate_id();
 } else {
     session_destroy();
-    header("Location: index.php?page=login");
+    header("Location: index.php");
     exit;
 }
