@@ -12,20 +12,15 @@ $getTopStory = mysqli_fetch_all($resStory, MYSQLI_ASSOC);
 
 ?>
 <?php foreach ($getTopStory as $datensatz) { ?>
-    <!-- <div class="jumbotron p-3 my-3 p-md-5 text-black rounded bg-light">
-        <div class="col-md-6 px-0">
-            <h1 class="display-4 font-italic"></h1>
-            <p class="lead my-3"></p>
-            <a class="btn btn-secondary btn-lg" href="index.php?page=register" role="button">Register to read more</a>
-        </div>
-    </div> -->
 
     <header class="masthead" id="home">
         <div class="container h-100">
-            <div class="row h-100 align-items-center">
+            <div class="row h-100 align-items-center px-5">
                 <div class="mainText col-12 text-left">
-                    <h1 class="font-weight-light text-light display-3"><?php echo $datensatz['title']; ?></h1>
+                    <h1 class="mb-3 py-5 font-weight-light text-light display-2"><?php echo $datensatz['title']; ?></h1>
                     <p class="lead text-light"><?php echo $datensatz['content']; ?></p>
+                    <a href="index.php?page=register"><button type="button" class="text-light btn btn-default btn-lg bg-dark my-5 px-5 py-3">Register Now</button></a>
+
                 </div>
             </div>
         </div>

@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text&family=Pavanam&display=swap");
+.masthead {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url("../img/skyline.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "Crimson Text", serif;
+    letter-spacing: 2px;
+}
+
+button {
+    font-family: "Crimson Text", serif;
+}
