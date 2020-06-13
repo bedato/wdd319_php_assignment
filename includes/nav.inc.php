@@ -4,6 +4,4 @@ $mainNav = array(
 	array('title' => 'Home', 'link' => 'welcome'),
 	array('title' => 'About', 'link' => 'about'),
 	array('title' => 'Contact', 'link' => 'contact'),
-	array('title' => 'Login', 'link' => 'login'),
-	array('title' => 'Register', 'link' => 'register'),
 );
