@@ -51,9 +51,9 @@ if ($readyToSend == true) {
     $successMsg = 'Thank you ' . $name . ', We will process your request and get back to you by this mail: ' . $email;
 }
 
-if (count($errormessages) > 0) {
-    echo implode('<br>', $errormessages);
-}
+// if (count($errormessages) > 0) {
+//     echo implode('<br>', $errormessages);
+// }
 
 if (isset($successMsg)) {
     echo '<br>' . $successMsg;
