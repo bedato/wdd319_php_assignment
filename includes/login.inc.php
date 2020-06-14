@@ -43,7 +43,7 @@ if (isset($_POST['username']) && isset($_POST['userpasswort']) && isset($_POST['
 
             // danach umleiten auf app
             // echo '<br>umleiten auf app';
-            header("Location: home.php");
+            header("Location: home.php?page=posts&page_nr=1");
             exit;
         } else {
             $error = true;

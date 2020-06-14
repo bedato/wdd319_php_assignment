@@ -9,7 +9,7 @@
                 <h1 class="card-title"><?php echo $datensatz['title']; ?>
                 </h1>
                 <p class="card-text"><?php echo $datensatz['author']; ?></p>
-                <p class="textContent"><?php echo $datensatz['content']; ?></p>
+                <p class="textContent"><?php echo truncate($datensatz['content']) ?></p>
                 <span class="text-italic text-muted"><?php echo $datensatz['date']; ?></span>
             </div>
         </a>
