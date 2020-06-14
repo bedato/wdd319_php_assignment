@@ -9,6 +9,16 @@
     letter-spacing: 1px;
 }
 
+.masthead_sec {
+    height: 100vh;
+    min-height: 500px;
+    background-image: url("../img/skyline.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    letter-spacing: 1px;
+}
+
 .profilepic {
     height: 30rem;
 }

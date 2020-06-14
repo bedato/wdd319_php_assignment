@@ -27,4 +27,14 @@ $(document).ready(function() {
     $("#changeUsername").parsley();
     $("#changeUserpw").parsley();
     $("#deleteAcc").parsley();
+
+    //Hover animation on posts
+    $('.postCard').hover(function() {
+        // over
+        $(this).addClass('bg-dark');
+        $(this).addClass('text-white');
+    }, function() {
+        $(this).removeClass('bg-dark');
+        $(this).removeClass('text-white');
+    });
 });
