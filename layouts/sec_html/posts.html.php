@@ -16,7 +16,7 @@
     <?php } ?>
     <!-- /.blog-post -->
 
-    <nav class="blog-pagination">
-        <a class="btn btn-outline-primary" href="#">Older</a>
-        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-    </nav>
+    <form class="blog-pagination" method="$_GET">
+        <button class="btn btn-outline-dark" name="page_nr"><a href="home.php?page=posts&page_nr=<?php echo $back ?>">Older</a></button>
+        <button class="btn btn-outline-dark" name="page_nr"><a href="home.php?page=posts&page_nr=<?php echo $next ?>">Newer</a></button>
+    </form>

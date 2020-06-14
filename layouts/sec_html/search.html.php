@@ -1,4 +1,4 @@
-<div class="col-md-8">
+<div class="col-md-12">
     <h1>Search Page</h1>
     <div>
         <?php
@@ -13,39 +13,14 @@
 
             if ($queryResult > 0) {
                 while ($row = mysqli_fetch_assoc($result)) { ?>
-                    <div class="blog-post">
-                        <h2 class="blog-post-title"><?php echo $row['title']; ?></h2>
-                        <p class="blog-post-meta"><?php echo $row['date'];
-                                                    echo $row['author']; ?></p>
-                        <p><?php echo $row['content']; ?></p>
-                    </div>
-                    <div class="comment">
-                        <h5>John Wick</h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa sequi totam magnam aspernatur consectetur! Quibusdam illo perspiciatis quo? Eius, rem?</p>
-                        <span>20. January</span>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12 col-md-offset-2 col-sm-12">
-                            <div class="comment-wrapper">
-                                <div class="panel panel-info">
-                                    <span style="display: none;"><?php echo $row['id']; ?></span>
-                                    <div class="panel-heading">
-                                        Write your comment here!
-                                    </div>
-                                    <div class="panel-body">
-                                        <form action="POST">
-                                            <textarea class="form-control" name="comment" placeholder="write a comment..." rows="3"></textarea>
-                                            <br>
-                                            <button type="button" class="btn btn-info pull-right">Post</button>
-                                            <div class="clearfix"></div>
-                                            <hr>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                    <a class="text-dark" href="home.php?page=article&post_id=<?php echo $row['id']; ?>">
+                        <div class="card p-5  my-3">
+                            <h1 class="card-title"><?php echo $row['title']; ?></h1>
+                            <p class="card-text"><?php echo $row['author']; ?></p>
+                            <p><?php echo $row['content']; ?></p>
+                            <span class="text-italic text-muted"><?php echo $row['date']; ?></span>
                         </div>
-                    </div>
+                    </a>
         <?php  }
             } else {
                 echo "There are no results matching your search";
