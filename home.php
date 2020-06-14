@@ -25,13 +25,10 @@ if (!empty($_GET['page'])) {
 <?php include('layouts/secLayouts/sec_head.php'); ?>
 
 <body class="bg-dark">
-    <div class="container">
-        <?php include('layouts/secLayouts/sec_nav.php'); ?>
+    <div class="cover-container">
         <?php
-        if ($page == 'posts') {
-            include('layouts/recommended.php');
-        }
-
+        include('layouts/secLayouts/sec_nav.php');
+        include('layouts/secLayouts/sec_header.php');
         ?>
     </div>
 
