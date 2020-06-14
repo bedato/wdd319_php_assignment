@@ -17,8 +17,8 @@
             <?php } ?>
         </ul>
         <form class="form-inline mt-2 mt-md-0" action="home.php?page=search" method="POST">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search" aria-label="Search">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit" name="submit-search">Search</button>
+            <input class="form-control mr-sm-2" id="searchPosts" type="text" placeholder="Search" name="search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" id="searchPostsBtn" type="submit" disabled="true" name="submit-search">Search</button>
         </form>
     </div>
 </nav>
