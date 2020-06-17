@@ -13,7 +13,7 @@
                     Public
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="admin.php?page=welcome">Welcome</a>
+                    <a class="dropdown-item" href="admin.php?page=edit_welcome">Welcome</a>
                     <a class="dropdown-item" href="#">Header</a>
                     <a class="dropdown-item" href="#">About</a>
                 </div>
