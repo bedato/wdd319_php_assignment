@@ -14,10 +14,10 @@
             if ($queryResult > 0) {
                 while ($row = mysqli_fetch_assoc($result)) { ?>
                     <a class="text-dark" href="home.php?page=article&post_id=<?php echo $row['id']; ?>">
-                        <div class="card p-5  my-3">
+                        <div class="card postCard p-5  my-3 rounded">
                             <h1 class="card-title"><?php echo $row['title']; ?></h1>
                             <p class="card-text"><?php echo $row['author']; ?></p>
-                            <p><?php echo $row['content']; ?></p>
+                            <p><?php echo truncate($row['content']); ?></p>
                             <span class="text-italic text-muted"><?php echo $row['date']; ?></span>
                         </div>
                     </a>
@@ -28,5 +28,4 @@
         }
         ?>
     </div>
-
 </div>

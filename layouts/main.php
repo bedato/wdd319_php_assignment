@@ -8,11 +8,7 @@ if ($res1 === false) {
 }
 
 $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
-
 ?>
-
-
-
 
 <main role="main" class="container bg-white p-5 my-3">
     <div class="row">
@@ -20,17 +16,12 @@ $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
         // Main Content ist abhängig von dem GET Parameter "page":
         if (is_file('layouts/html/' . $page . '.html.php')) {
             include('layouts/html/' . $page . '.html.php');
-        } else {
-            echo '<h3>Seite nicht gefunden</h3>';
-            echo '<p>Diese Seite existiert (noch) nicht.</p>';
-        }
-        ?>
-        <!-- /.blog-main -->
-
-        <?php include('aside.php'); ?>
-        <!-- /.blog-sidebar -->
-
+        } else { ?>
+            <div class="container">
+                <h1>Page not Found</h1>
+                <p>This page does not exist (yet)</p>
+                <a href="index.php?page=welcome"><button type="button" class="border border-white text-light btn btn-default btn-lg bg-dark my-5 px-5 py-3">Take me Home</button></a>
+            </div>
+        <?php } ?>
     </div>
-    <!-- /.row -->
-
 </main>
