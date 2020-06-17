@@ -13,7 +13,7 @@
                             <input type="text" name="username" id="username" class="form-control" value="<?= $inputUsername ?>" placeholder="Username" required="" ">
                         </div>
                         <div class=" form-group">
-                            <label for="input_username" class="text-dark">Email:</label><br>
+                            <label for="input_email" class="text-dark">Email:</label><br>
                             <input type="text" name="email" id="email" class="form-control" value="<?= $inputEmail ?>" placeholder="Email" required="" data-parsley-trigger="change">
                         </div>
                         <div class=" form-group">
