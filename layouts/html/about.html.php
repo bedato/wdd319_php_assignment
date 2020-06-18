@@ -1,26 +1,10 @@
 <?php
-$aboutTable = "SELECT * FROM about";
-
-$resultat = mysqli_query($conn, $aboutTable);
-
-if ($resultat === false) {
-    echo 'MYSQL Fehler ' . mysqli_info($conn);
-}
-
-$allAbout = mysqli_fetch_all($resultat, MYSQLI_ASSOC);
-
+require_once('includes/functions/functions.inc.php');
+$contents = pageQuery('about', $conn);
 ?>
-
-<?php foreach ($allAbout as $data) { ?>
-
-    <div class="col-md-8">
-        <h1 class="mb-4"><?php echo $data['title']; ?></h1>
-        <p><?php echo $data['content']; ?></p>
-        <img src="assets/img/<?php echo $data['img']; ?>" class="img-thumbnail profilepic" alt="">
-        <h2 class="m-4"><?php echo $data['heading2']; ?></h2>
-        <ul>
-            <li><a href="#"><?php echo $data['links']; ?></a></li>
-        </ul>
-    </div>
-
-<?php } ?>
+<div class="col-md-8">
+    <h1 class="mb-4"><?= $contents[0]['title'] ?></h1>
+    <div><?= $contents[0]['intro_text'] ?></div>
+    <img src="assets/page_imgs/<?= $contents[0]['img'] ?>" class="img-thumbnail profilepic" alt="">
+    <div><?= $contents[0]['content'] ?></div>
+</div>

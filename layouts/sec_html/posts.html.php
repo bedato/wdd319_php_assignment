@@ -12,12 +12,24 @@
                 <p class="card-text"><?php echo $datensatz['author']; ?></p>
                 <p class="textContent"><?php echo truncate($datensatz['intro_text']) ?></p>
                 <span class="text-italic text-muted"><?php echo $datensatz['date']; ?></span>
+                <img class="card-img-top" src="assets/blog_imgs/<?= $datensatz['img'] ?>" alt="Card image cap">
             </div>
         </a>
     <?php } ?>
     <!-- /.blog-post -->
 
-    <form class="blog-pagination" method="GET">
-        <button class="btn btn-outline-dark text-light" name="page_nr"><a href="home.php?page=posts&page_nr=<?php echo $back ?>">Older</a></button>
-        <button class="btn btn-outline-dark text-light" name="page_nr"><a href="home.php?page=posts&page_nr=<?php echo $next ?>">Newer</a></button>
-    </form>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item <?= $disabledPrev ?>">
+                <a class="page-link" href="home.php?page=posts&pg=<?= $page_nr - 1 ?>">Previous</a>
+            </li>
+            <?php
+            for ($page_nr = 1; $page_nr <= $number_of_pages; $page_nr++) { ?>
+                <a class="page-item"><a class="page-link" href="home.php?page=posts&pg=<?= $page_nr ?>"><?= $page_nr ?></a>
+                <?php } ?>
+
+                <li class="page-item">
+                    <a class="page-link" href="home.php?page=posts&pg=<?= $page_nr - 1 ?>">Next</a>
+                </li>
+        </ul>
+    </nav>

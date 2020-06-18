@@ -1,29 +1,29 @@
 <?php
-$limit = 5;
-$page_nr = isset($_GET['page_nr']) ? $_GET['page_nr'] : 1;
-$start = ($page_nr - 1) * $limit;
-$sql = "SELECT * FROM `posts` LIMIT $start, $limit";
+
+$sql = "SELECT * FROM `posts`";
+$results_per_page = 5;
 $res1 = mysqli_query($conn, $sql);
+$number_of_results = mysqli_num_rows($res1);
+$number_of_pages = ceil($number_of_results / $results_per_page);
 
-$sql2 = "SELECT count(id) AS id FROM `posts`";
-$res2 = mysqli_query($conn, $sql2);
-$postCount = mysqli_fetch_all($res2, MYSQLI_ASSOC);
-$total = $postCount[0]['id'];
-$post_nrs = ceil($total / $limit); //max amount of posts
-
-$next = $page_nr + 1;
-$back = $page_nr - 1;
-
-if ($next > $post_nrs) {
-    $next = 1;
+if (!isset($_GET['pg'])) {
+    $page_nr = 1;
+} else {
+    $page_nr = $_GET['pg'];
 }
 
-if ($back < 1) {
-    $back = $post_nrs;
+$disabledPrev = '';
+if ($page_nr == 1) {
+    $disabledPrev = 'disabled';
 }
+
+
+$this_page_first_result = ($page_nr - 1) * $results_per_page;
+
+$sql = "SELECT * FROM `posts` LIMIT " . $this_page_first_result . ',' . $results_per_page;
+$res1 = mysqli_query($conn, $sql);
 
 if ($res1 === false) {
     echo 'MYSQL Fehler ' . mysqli_info($conn);
 }
-
 $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
