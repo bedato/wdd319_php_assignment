@@ -6,7 +6,7 @@ function sanitizer($str): string
     return $cleanStr;
 }
 
-function truncate($string, $length = 400, $append = "&hellip;")
+function truncate($string, $length = 400, $append = "&hellip;"): string
 {
     $string = trim($string);
 
@@ -17,4 +17,15 @@ function truncate($string, $length = 400, $append = "&hellip;")
     }
 
     return $string;
+}
+
+function pageQuery($page, $conn): array
+{
+    $sqlC = "SELECT * FROM `pages` WHERE `page` = '$page'";
+    $result = mysqli_query($conn, $sqlC);
+    if ($result === false) {
+        echo 'MYSQL Fehler ' . mysqli_info($conn);
+    }
+    $contents = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    return $contents;
 }
