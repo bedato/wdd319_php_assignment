@@ -4,18 +4,18 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ml-auto mr-auto">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="admin.php?page=posts; ?>">Posts</a>
+                <a class="nav-link" href="admin.php?page=posts">Posts</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Public
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="admin.php?page=welcome">Welcome</a>
-                    <a class="dropdown-item" href="#">Header</a>
-                    <a class="dropdown-item" href="#">About</a>
+                    <a class="dropdown-item" href="admin.php?page=edit_welcome">Welcome</a>
+                    <a class="dropdown-item" href="admin.php?page=edit_pb_header">Header</a>
+                    <a class="dropdown-item" href="admin.php?page=edit_about">About</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -23,9 +23,15 @@
                     Private
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Header</a>
-                    <a class="dropdown-item" href="#">Post Container</a>
+                    <a class="dropdown-item" href="admin.php?page=edit_pv_header">Header</a>
                 </div>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php?page=logout">Logout</a>
             </li>
         </ul>
     </div>

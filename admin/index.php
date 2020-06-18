@@ -1,4 +1,4 @@
-<?php include('admin/includes/login.inc.php') ?>
+<?php include('includes/login.inc.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">

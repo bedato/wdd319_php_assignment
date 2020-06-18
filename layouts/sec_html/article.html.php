@@ -45,6 +45,7 @@ if (!mysqli_stmt_prepare($stmt, $art_sql)) {
             mysqli_stmt_bind_param($cmnt_stmt, "ssi", $_SESSION['username'], $comment, $currentArticle);
             mysqli_stmt_execute($cmnt_stmt);
         }
+        header("home.php?page=article&post_id=$currentArticle");
     }
     include('layouts/secLayouts/write_comment.php');
 }

@@ -1,4 +1,5 @@
 <?php
+require_once('includes/loggedInStatus.inc.php');
 $conn = mysqli_connect('localhost', 'root', 'root', 'blog');
 
 //Remove before releasing for security reasons
@@ -22,16 +23,10 @@ if (!empty($_GET['page'])) {
 <body>
     <div class="cover-container">
         <?php include('layouts/nav.php'); ?>
-        <?php //if ($page == 'welcome') {
-        //include('layouts/header.php');
-        //} 
-        ?>
     </div>
 
     <?php include('layouts/main.php'); ?>
 
-    <?php //include('layouts/footer.php'); 
-    ?>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

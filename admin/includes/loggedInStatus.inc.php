@@ -22,6 +22,6 @@ if ($loginstatus == true && $gleicheIP == true && $nochAktiv == true) {
     session_regenerate_id();
 } else {
     session_destroy();
-    header("Location: ../admin_login.php");
+    header("Location: index.php");
     exit;
 }

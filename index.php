@@ -1,5 +1,4 @@
 <?php
-
 require_once('includes/config.inc.php');
 require_once('includes/functions/functions.inc.php');
 require_once('includes/nav.inc.php'); // array  with nav data
