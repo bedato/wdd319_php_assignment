@@ -1,16 +1,16 @@
 <?php
-include('includes/editWelcome.inc.php');
+include('includes/editAbout.inc.php');
 
-$wlc_sql = "SELECT * FROM pages WHERE page = ?";
-$id = "welcome";
+$abt_sql = "SELECT * FROM pages WHERE page = ?";
+$id = "about";
 $stmt = mysqli_stmt_init($conn);
 ?>
 <div class="mb-5 pb-5">
     <h1 class="mb-3">Edit Post</h1>
-    <p class="lead">Edit the Welcome Screen from the blog.</p>
+    <p class="lead">Edit the About section from the blog.</p>
 </div>
 <?php
-if (!mysqli_stmt_prepare($stmt, $wlc_sql)) {
+if (!mysqli_stmt_prepare($stmt, $abt_sql)) {
     echo "SQL statement failed";
 } else {
     mysqli_stmt_bind_param($stmt, "s", $id);
@@ -23,6 +23,10 @@ if (!mysqli_stmt_prepare($stmt, $wlc_sql)) {
             <div>
                 <label for="title">Title</label>
                 <input type="text" name="title" value="<?= $row['title'] ?>"><br>
+            </div>
+            <div>
+                <label for="picture">Upload Picture</label>
+                <input type="file" name="bild" /><br><br>
             </div>
             <div>
                 <label for="intro_text">Introduction Text</label>

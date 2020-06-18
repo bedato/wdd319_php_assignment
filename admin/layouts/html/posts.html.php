@@ -1,7 +1,26 @@
 <?php
 
 $sql = "SELECT * FROM `posts`";
+$results_per_page = 5;
+$res1 = mysqli_query($conn, $sql);
+$number_of_results = mysqli_num_rows($res1);
+$number_of_pages = ceil($number_of_results / $results_per_page);
 
+if (!isset($_GET['pg'])) {
+    $page_nr = 1;
+} else {
+    $page_nr = $_GET['pg'];
+}
+
+$disabledPrev = '';
+if ($page_nr == 1) {
+    $disabledPrev = 'disabled';
+}
+
+
+$this_page_first_result = ($page_nr - 1) * $results_per_page;
+
+$sql = "SELECT * FROM `posts` LIMIT " . $this_page_first_result . ',' . $results_per_page;
 $res1 = mysqli_query($conn, $sql);
 
 if ($res1 === false) {
@@ -28,3 +47,21 @@ foreach ($alledaten as $datensatz) { ?>
 <div style="width: 18rem;">
     <a href="admin.php?page=new_post"><button type="button" class="btn btn-success btn-lg btn-block py-5">Add New Post +</button></a>
 </div>
+
+
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+        <li class="page-item <?= $disabledPrev ?>">
+            <a class="page-link" href="admin.php?page=posts&pg=<?= $page_nr - 1 ?>">Previous</a>
+        </li>
+        <?php
+        for ($page_nr = 1; $page_nr <= $number_of_pages; $page_nr++) { ?>
+            <a class="page-item"><a class="page-link" href="admin.php?page=posts&pg=<?= $page_nr ?>"><?= $page_nr ?></a>
+            <?php } ?>
+
+            <li class="page-item">
+                <a class="page-link" href="admin.php?page=posts&pg=<?= $page_nr - 1 ?>">Next</a>
+            </li>
+    </ul>
+</nav>

@@ -1,13 +1,13 @@
 <?php
-include('includes/editWelcome.inc.php');
+include('includes/editPbHeader.inc.php');
 
 $wlc_sql = "SELECT * FROM pages WHERE page = ?";
-$id = "welcome";
+$id = "header_public";
 $stmt = mysqli_stmt_init($conn);
 ?>
 <div class="mb-5 pb-5">
     <h1 class="mb-3">Edit Post</h1>
-    <p class="lead">Edit the Welcome Screen from the blog.</p>
+    <p class="lead">Edit the Public Header from the blog.</p>
 </div>
 <?php
 if (!mysqli_stmt_prepare($stmt, $wlc_sql)) {
@@ -28,21 +28,8 @@ if (!mysqli_stmt_prepare($stmt, $wlc_sql)) {
                 <label for="intro_text">Introduction Text</label>
                 <textarea id='intro_text' name='intro_text'><?= $row['intro_text'] ?></textarea><br>
             </div>
-            <div>
-                <label for="content">Blog Post Content</label>
-                <textarea id='content' name='content'><?= $row['content'] ?></textarea><br>
-            </div>
-
             <input type="submit" name="submit" value="Submit">
         </form>
     </div>
 
 <?php } ?>
-
-
-<script type="text/javascript">
-    // Initialize CKEditor
-    CKEDITOR.inline('intro_text');
-
-    CKEDITOR.replace('content');
-</script>

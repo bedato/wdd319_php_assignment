@@ -14,8 +14,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="admin.php?page=edit_welcome">Welcome</a>
-                    <a class="dropdown-item" href="#">Header</a>
-                    <a class="dropdown-item" href="#">About</a>
+                    <a class="dropdown-item" href="admin.php?page=edit_pb_header">Header</a>
+                    <a class="dropdown-item" href="admin.php?page=edit_about">About</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -23,8 +23,7 @@
                     Private
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Header</a>
-                    <a class="dropdown-item" href="#">Post Container</a>
+                    <a class="dropdown-item" href="admin.php?page=edit_pv_header">Header</a>
                 </div>
             </li>
         </ul>

@@ -1,13 +1,12 @@
 <?php
 $title = isset($_POST['title']) ? $_POST['title'] : '';
 $intro_text = isset($_POST['intro_text']) ? $_POST['intro_text'] : '';
-$content = isset($_POST['content']) ? $_POST['content'] : '';
 
 $formSent = true;
 $errormessages = [];
 
 
-if (isset($_POST['title']) && isset($_POST['intro_text']) && isset($_POST['content'])) {
+if (isset($_POST['title']) && isset($_POST['intro_text'])) {
     if (empty($title)) {
         $errormessages[] = 'Please add title';
         $formSent = false;
@@ -17,17 +16,11 @@ if (isset($_POST['title']) && isset($_POST['intro_text']) && isset($_POST['conte
         $errormessages[] = 'Please add a intro text';
         $formSent = false;
     }
-
-    if (empty($content)) {
-        $errormessages[] = 'enter your Blog content';
-        $formSent = false;
-    }
 } else {
     $formSent = false;
 }
 if ($formSent) {
-    //mysqli_query($conn, "INSERT INTO posts(title, intro_text, content, author, img) VALUES('" . $title . "','" . $intro_text . "','" . $content . "','" . $author . "', '" . $finalImg . "') ");
-    $sql = "UPDATE `pages` SET `title` ='" . $title . "' , `intro_text` = '" . $intro_text . "', `content` = '" . $content . "' WHERE `page` = 'welcome'";
+    $sql = "UPDATE `pages` SET `title` ='" . $title . "' , `intro_text` = '" . $intro_text . "' WHERE `page` = 'header_private'";
 
     if (mysqli_query($conn, $sql)) {
         echo "New record created successfully";
@@ -35,7 +28,7 @@ if ($formSent) {
         echo "Error: " . $sql . "" . mysqli_error($conn);
     }
     //add Success prompt
-    header('location: admin.php?page=edit_welcome');
+    header('location: admin.php?page=edit_pv_header');
 }
 
 
