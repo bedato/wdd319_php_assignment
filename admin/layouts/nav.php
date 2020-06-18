@@ -4,7 +4,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav ml-auto mr-auto">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item">
                 <a class="nav-link" href="admin.php?page=posts">Posts</a>
             </li>
@@ -25,6 +25,13 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="admin.php?page=edit_pv_header">Header</a>
                 </div>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php?page=logout">Logout</a>
             </li>
         </ul>
     </div>

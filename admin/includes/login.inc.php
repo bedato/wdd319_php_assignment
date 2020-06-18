@@ -49,7 +49,7 @@ if (isset($_POST['username']) && isset($_POST['userpassword']) && isset($_POST['
 
             // danach umleiten auf app
             // echo '<br>umleiten auf app';
-            header("Location: admin/admin.php");
+            header("Location: admin.php");
             exit;
         } else {
             $error = true;
