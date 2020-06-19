@@ -10,7 +10,7 @@
         <h3 class=" text-danger my-3">Enter your Username to delete your account: </h3>
         <div class="form-group">
             <label for="delete_user" class="text-danger">Username:</label><br>
-            <input type="text" name="delete_user" id="delete_user" class="form-control" required="">
+            <input type="text" name="delete_user" id="delete_user" class="form-control" required="" data-parsley-required-message="Enter your current username to delete your account">
         </div>
         <div class="form-group">
             <input type="submit" name="delete_acc" class="btn btn-danger btn-md" value="DELETE">

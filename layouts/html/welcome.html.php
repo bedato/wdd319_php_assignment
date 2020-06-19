@@ -8,7 +8,7 @@ $contents = pageQuery('welcome', $conn);
 <div class="col-md-8 blog-main">
     <div>
         <h1 class="pb-3"><?= $contents[0]['title'] ?></h1>
-        <div><?= $contents[0]['intro_text'] ?></div>
+        <div class="lead"><?= $contents[0]['intro_text'] ?></div>
         <div><?= $contents[0]['content'] ?></div>
         <hr>
     </div>
