@@ -20,7 +20,8 @@ if (!mysqli_stmt_prepare($stmt, $art_sql)) {
 
     include('layouts/secLayouts/comments.php');
 
-    $comment = isset($_POST['comment']) ? $_POST['comment'] : '';;
+    $comment = isset($_POST['comment']) ? $_POST['comment'] : '';
+    $timestamp = date("Y-m-d H:i:s");
     $errormessages = array();
     $readyToSend = true;
 
@@ -36,16 +37,15 @@ if (!mysqli_stmt_prepare($stmt, $art_sql)) {
     }
 
     if ($readyToSend == true) {
-        $sql = "INSERT INTO `comments` (`id`, `username`, `comment_text`, `comment_id`, `timestamp`) VALUES (NULL, ?, ?, ?, NULL);";
+        $sql = "INSERT INTO `comments` (`id`, `username`, `comment_text`, `comment_id`, `timestamp`) VALUES (NULL, ?, ?, ?, ?);";
 
         $cmnt_stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($cmnt_stmt, $sql)) {
             echo "SQL error";
         } else {
-            mysqli_stmt_bind_param($cmnt_stmt, "ssi", $_SESSION['username'], $comment, $currentArticle);
+            mysqli_stmt_bind_param($cmnt_stmt, "ssis", $_SESSION['username'], $comment, $currentArticle, $timestamp);
             mysqli_stmt_execute($cmnt_stmt);
         }
-        header("home.php?page=article&post_id=$currentArticle");
     }
     include('layouts/secLayouts/write_comment.php');
 }

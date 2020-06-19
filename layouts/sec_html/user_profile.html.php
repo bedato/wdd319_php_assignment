@@ -10,11 +10,11 @@
     <form method="POST" id="changeUsername" data-parsley-validate="">
         <h3 class=" text-dark my-3">Change your Username: </h3>
         <div class="form-group">
-            <label for="change_username" class="text-dark">New Username:</label><br>
-            <input type="text" name="username_new" id="username" class="form-control" required="">
+            <label for="username" class="text-dark">New Username:</label><br>
+            <input type="text" name="username_new" id="username" class="form-control" required="" data-parsley-required-message="Please enter your new name">
         </div>
         <div class="form-group">
-            <input type="submit" name="change" class="btn btn-dark btn-md" value="submit">
+            <input type="submit" name="change" class="btn btn-dark btn-md" value="Submit">
         </div>
     </form>
 
@@ -22,14 +22,14 @@
         <h3 class=" text-dark my-3">Change your Password: </h3>
         <div class="form-group">
             <label for="input_pw" class="text-dark">Old Password:</label><br>
-            <input type="password" name="old_pw" id="password" class="form-control" required="">
+            <input type="password" name="old_pw" id="input_pw" class="form-control" required="" data-parsley-required-message="Please enter your current password">
         </div>
         <div class="form-group">
-            <label for="input_pw" class="text-dark">New Password:</label><br>
-            <input type="password" name="new_pw" id="password" class="form-control" required="">
+            <label for="input_pw_new" class="text-dark">New Password:</label><br>
+            <input type="password" name="new_pw" id="input_pw_new" class="form-control" required="" data-parsley-required-message="Please enter your new password">
         </div>
         <div class="form-group">
-            <input type="submit" name="change_pw" class="btn btn-dark btn-md" value="change">
+            <input type="submit" name="change_pw" class="btn btn-dark btn-md" value="Change">
         </div>
     </form>
 

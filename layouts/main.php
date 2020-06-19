@@ -22,6 +22,7 @@ $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
                 <p>This page does not exist (yet)</p>
                 <a href="index.php?page=welcome"><button type="button" class="border border-white text-light btn btn-default btn-lg bg-dark my-5 px-5 py-3">Take me Home</button></a>
             </div>
-        <?php } ?>
+        <?php }
+        include('layouts/aside.php'); ?>
     </div>
 </main>

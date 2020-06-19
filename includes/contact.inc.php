@@ -55,10 +55,6 @@ if ($readyToSend == true) {
 //     echo implode('<br>', $errormessages);
 // }
 
-if (isset($successMsg)) {
-    echo '<br>' . $successMsg;
-}
-
 if ($readyToSend === true && count($errormessages) > 0) {
     $empfaenger = 't.m.rvle@gmail.com';
     $betreff = 'Kontaktanfrage von training.bytekultur.net';

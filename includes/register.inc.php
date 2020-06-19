@@ -129,14 +129,14 @@ Passwort Confirm:
         $headers .=  "Content-Type: text/html; charset='ISO-8859-1'";
 
 
-        echo '<pre>';
-        echo $headers;
-        echo '</pre>';
+        // echo '<pre>';
+        // echo $headers;
+        // echo '</pre>';
     }
 
     // Fehlermeldungen ausgeben: 
-    if (count($errormsg) > 0) {
-        echo '<p style="color:red;">';
-        echo implode('<br>', $errormsg);
-        echo '</p>';
-    }
+    // if (count($errormsg) > 0) {
+    //     echo '<p style="color:red;">';
+    //     echo implode('<br>', $errormsg);
+    //     echo '</p>';
+    // }

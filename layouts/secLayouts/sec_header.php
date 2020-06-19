@@ -2,7 +2,7 @@
     require_once('includes/functions/functions.inc.php');
     $contents = pageQuery('header_private', $conn);
     ?>
-    <header class="masthead" id="home">
+    <header class="masthead_sec" id="home">
         <div class="container h-100">
             <div class="row h-100 align-items-center px-5">
                 <div class="mainText col-12 text-left">
