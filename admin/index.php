@@ -18,15 +18,15 @@
                 <div class="card card-signin my-5">
                     <div class="card-body">
                         <h5 class="card-title text-center">Sign In</h5>
-                        <form class="form-signin" method="post">
+                        <form class="form-signin" method="post" id="adminLogin">
                             <div class="form-label-group py-3">
                                 <label for="adminName">Username</label>
-                                <input name="username" type="name" id="adminName" class="form-control" placeholder="Username" required autofocus>
+                                <input name="username" type="name" id="adminName" class="form-control" placeholder="Username" required="" data-parsley-required-message="Enter your admin username" autofocus>
                             </div>
 
-                            <div class="form-label-group py-3">
+                            <div class=" form-label-group py-3">
                                 <label for="inputPassword">Password</label>
-                                <input name="userpassword" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                <input name="userpassword" type="password" id="inputPassword" class="form-control" placeholder="Password" required="" data-parsley-required-message="Enter your password">
                             </div>
                             <button class="btn btn-lg btn-dark btn-block text-uppercase" name="submit" type="submit">Sign in</button>
                         </form>
