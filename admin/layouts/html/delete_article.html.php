@@ -9,21 +9,25 @@ if ($delete) {
     $cmntres = mysqli_query($conn, $sqlcmnt);
     $sql = "DELETE FROM posts WHERE id = $currentArticle";
     $delres = mysqli_query($conn, $sql);
-    header('location: admin.php?page=posts');
+    header('location: admin.php?page=article_del_successful');
 }
 ?>
 <div>
-    <h4>Comments: </h4>
     <?php foreach ($post_data as $total_post) { ?>
-        <div class="mb-5 pt-2 pb-4 ">
-            <h1>Delete Post</h1>
-            <h3>Are you sure you want to delete this post? It can't be undone</h3>
-            <h5><?php echo $total_post['title'] . " "; ?> <span class="font-italic text-muted"><?php echo $total_post['author']; ?></span></h5>
-            <p class="my-3"><?php echo $total_post['intro_text']; ?></p>
-            <form action="" method="post">
-                <button name="delete" value="delete">Delete Post</button>
+
+        <div class="jumbotron mb-5 pt-2 pb-4 ">
+            <h1 class="display-4">Delete Post</h1>
+            <h3 class="display-5 my-5">Are you sure you want to delete this post? It can't be undone</h3>
+            <h5 class="mt-5">Post Title: </h5>
+            <span> <?php echo $total_post['title'] . " "; ?> </span>
+            <h5 class="mt-5">By Author: </h5><span class="font-italic text-muted"><?php echo $total_post['author']; ?></span>
+            <h5 class="mt-5">Intro Text: </h5>
+            <p><?php echo $total_post['intro_text']; ?></p>
+            <form method="post">
+                <button name="delete" class="my-5 text-light btn btn-default btn-lg bg-danger" value="delete">Delete Post</button>
             </form>
         </div>
         <hr>
+
     <?php } ?>
 </div>

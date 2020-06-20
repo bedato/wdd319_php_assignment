@@ -57,7 +57,7 @@ if (isset($_POST['title']) && isset($_POST['intro_text']) && isset($_POST['conte
 if ($formSent) {
     mysqli_query($conn, "INSERT INTO posts(title,intro_text,content, author, img) VALUES('" . $title . "','" . $intro_text . "','" . $content . "','" . $author . "', '" . $finalImg . "') ");
     //add Success prompt
-    header('location: admin.php?page=new_post');
+    header('location: admin.php?page=article_create_successful');
 }
 
 if (count($errormessages) > 0) {

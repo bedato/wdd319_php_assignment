@@ -34,20 +34,23 @@ if (isset($_POST['title']) && isset($_POST['intro_text']) && isset($_POST['conte
     if ($_FILES['bild']['error'] > 0) {
         $errormessages[] = 'Please upload a picture';
         $formSent = false;
+    }
+
+    //check img
+    $mimeType = mime_content_type($_FILES['bild']['tmp_name']);
+    $typeOK = in_array($mimeType, $allowed_fileformat);
+
+    $tmppfad = $_FILES['bild']['tmp_name'];
+    // Zielname mit Dateinamen sollte nicht ungewollt überschrieben werden, hier mit timestamp:
+    $finalImg = time() . '_' . $_FILES['bild']['name'];
+    $ziel = $_SERVER['DOCUMENT_ROOT'] . '/WDDPHP/assets/blog_imgs/' . $finalImg;
+
+    if ($typeOK) {
+        // verschieben der Datei aus dem PHP Temp-Ordner zu unserem Zielordner (mit von uns gewähltem Namen )
+        $uploadSuccess = move_uploaded_file($tmppfad, $ziel);
     } else {
-        //check img
-        $mimeType = mime_content_type($_FILES['bild']['tmp_name']);
-        $typeOK = in_array($mimeType, $allowed_fileformat);
-
-        $tmppfad = $_FILES['bild']['tmp_name'];
-        // Zielname mit Dateinamen sollte nicht ungewollt überschrieben werden, hier mit timestamp:
-        $finalImg = time() . '_' . $_FILES['bild']['name'];
-        $ziel = $_SERVER['DOCUMENT_ROOT'] . '/WDDPHP/assets/blog_imgs/' . $finalImg;
-
-        if ($typeOK) {
-            // verschieben der Datei aus dem PHP Temp-Ordner zu unserem Zielordner (mit von uns gewähltem Namen )
-            $uploadSuccess = move_uploaded_file($tmppfad, $ziel);
-        }
+        $errormessages[] = 'Please upload a valid picture type';
+        $formSent = false;
     }
 } else {
     $formSent = false;
@@ -63,7 +66,7 @@ if ($formSent == true) {
         echo "Error: " . $sql . "" . mysqli_error($conn);
     }
     //add Success prompt
-    header('location: admin.php?page=posts');
+    header('location: admin.php?page=article_update_successful');
 }
 
 if (count($errormessages) > 0) {

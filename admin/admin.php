@@ -1,5 +1,6 @@
 <?php
 require_once('includes/loggedInStatus.inc.php');
+require_once('includes/functions/functions.inc.php');
 $conn = mysqli_connect('localhost', 'root', 'root', 'blog');
 
 //Remove before releasing for security reasons

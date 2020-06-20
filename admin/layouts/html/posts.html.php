@@ -38,10 +38,10 @@ $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
                         <img class="card-img-top" src="../assets/blog_imgs/<?= $datensatz['img'] ?>" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><?= $datensatz['title'] ?></h5>
-                            <p class="card-text"><?= $datensatz['intro_text'] ?></p>
+                            <p class="card-text"><?= truncate($datensatz['intro_text']) ?></p>
                         </div>
                         <div class="card-body">
-                            <a href="#" class="card-link"><button class="btn btn-primary btn-lg btn-block"><i class="fas fa-pen"></i> Edit</button></a>
+                            <a href="admin.php?page=article&post_id=<?php echo $datensatz['id']; ?>" class="card-link"><button class="btn btn-primary btn-lg btn-block"><i class="fas fa-pen"></i> Edit</button></a>
                         </div>
                     </div>
                 </a>
