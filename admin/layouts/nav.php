@@ -27,12 +27,12 @@
                 </div>
             </li>
         </ul>
-    </div>
-    <div>
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item bg-danger rounded">
-                <a class="nav-link" href="admin.php?page=logout"><i class="fas fa-power-off"></i> Logout</a>
-            </li>
-        </ul>
+        <div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item bg-danger rounded">
+                    <a class="nav-link" href="admin.php?page=logout"><i class="fas fa-power-off"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>

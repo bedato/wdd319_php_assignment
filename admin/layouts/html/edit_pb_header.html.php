@@ -29,7 +29,7 @@ $stmt = mysqli_stmt_init($conn);
                     <label for="intro_text">Introduction Text</label>
                     <textarea class="form-control" id='intro_text' name='intro_text'><?= $row['intro_text'] ?></textarea><br>
                 </div>
-                <input type=" submit" name="submit" value="Submit" class="text-light btn btn-default btn-lg bg-success">
+                <input type="submit" name="submit" value="Submit" class="text-light btn btn-default btn-lg bg-success">
             </form>
         </div>
 

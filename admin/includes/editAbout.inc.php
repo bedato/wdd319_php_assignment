@@ -55,7 +55,7 @@ if ($formSent) {
         echo "Error: " . $sql . "" . mysqli_error($conn);
     }
     //add Success prompt
-    header('location: admin.php?page=edit_about');
+    header('location: admin.php?page=page_update_successful');
 }
 
 

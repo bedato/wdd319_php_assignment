@@ -1,32 +1,11 @@
 $(document).ready(function() {
-    //form validation
-    $("#adminLogin").parsley();
-
-    //Hover animation on posts
-    $('.postCard').hover(function() {
-        // over
-        $(this).addClass('bg-dark');
-        $(this).addClass('text-white');
-    }, function() {
-        $(this).removeClass('bg-dark');
-        $(this).removeClass('text-white');
-    });
-
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
+    //Hover animation on post
+    $('.card').hover(
+        function() {
+            $(this).addClass('shadow')
+        },
+        function() {
+            $(this).removeClass('shadow')
+        }
+    );
 });

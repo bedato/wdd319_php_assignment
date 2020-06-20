@@ -30,11 +30,11 @@ if ($res1 === false) {
 $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
 ?>
 <div class="container">
-    <div class="d-flex justify-content-around flex-wrap">
+    <div class="d-flex justify-content-center flex-wrap">
         <?php foreach ($alledaten as $datensatz) { ?>
             <div class="mb-5">
                 <a class="text-dark" href="admin.php?page=article&post_id=<?php echo $datensatz['id']; ?>">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card mx-3" style="width: 18rem;">
                         <img class="card-img-top" src="../assets/blog_imgs/<?= $datensatz['img'] ?>" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><?= $datensatz['title'] ?></h5>
@@ -48,7 +48,7 @@ $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
             </div>
         <?php } ?>
         <div style="width: 18rem;">
-            <a href="admin.php?page=new_post"><button type="button" class="btn btn-success btn-lg btn-block py-5"><i class="fas fa-plus"></i> Add New Post</button></a>
+            <a href="admin.php?page=new_post"><button type="button" class="btn btn-success btn-lg btn-block py-5 mb-5"><i class="fas fa-plus"></i> Add New Post</button></a>
         </div>
     </div>
 </div>

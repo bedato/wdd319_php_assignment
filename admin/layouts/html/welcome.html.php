@@ -8,7 +8,7 @@
                     <p class="lead">To modify everything a registered user sees on your page select "Private" on the Nav</p>
                     <br>
                     <p>Want to create a new post?</p>
-                    <a href="admin.php?page=new_post"><button type="button" class="border border-white text-light btn btn-default btn-lg bg-dark px-5 py-3">New Post</button></a>
+                    <a href="admin.php?page=new_post"><button type="button" class="border border-white text-light btn btn-default btn-lg bg-primary px-5 py-3">New Post</button></a>
                 </div>
             </div>
         </div>

@@ -9,6 +9,7 @@ $errormessages = [];
 
 $maxFileSize = 5 * 1024 * 1024; // 5 MB in Bytes
 $allowed_fileformat = array('image/jpeg', 'image/gif', 'image/png');
+$timestamp = date("Y-m-d H:i:s");
 
 if (isset($_POST['title']) && isset($_POST['intro_text']) && isset($_POST['content']) && isset($_POST['author']) && isset($_FILES['bild'])) {
     if (empty($title)) {
@@ -55,7 +56,7 @@ if (isset($_POST['title']) && isset($_POST['intro_text']) && isset($_POST['conte
 
 //add Date value to inserts (look up comments in the privates)
 if ($formSent) {
-    mysqli_query($conn, "INSERT INTO posts(title,intro_text,content, author, img) VALUES('" . $title . "','" . $intro_text . "','" . $content . "','" . $author . "', '" . $finalImg . "') ");
+    mysqli_query($conn, "INSERT INTO posts(title,intro_text,content, date, author, img) VALUES('" . $title . "','" . $intro_text . "','" . $content . "','" . $timestamp . "','" . $author . "', '" . $finalImg . "') ");
     //add Success prompt
     header('location: admin.php?page=article_create_successful');
 }
@@ -68,40 +69,41 @@ if (count($errormessages) > 0) {
 
 
 ?>
-<div class="mb-5 pb-5">
-    <h1 class="mb-3">Add a new Post</h1>
-    <p class="lead">Here you can add a new Post to your Blog! Simply fill out this form and you new blog post is good to go.</p>
-</div>
-<div>
-    <form method='post' enctype="multipart/form-data">
-        <div>
-            <label for="title">Title</label>
-            <input type="text" name="title"><br>
-        </div>
-        <div>
-            <label for="author">Author</label>
-            <input type="author" name="author"><br>
-        </div>
-        <div>
-            <label for="picture">Upload Picture</label>
-            <input type="file" name="bild" /><br><br>
-        </div>
-        <div>
-            <label for="intro_text">Introduction Text</label>
-            <textarea id='intro_text' name='intro_text'></textarea><br>
-        </div>
-        <div>
-            <label for="content">Blog Post Content</label>
-            <textarea id='content' name='content'></textarea><br>
-        </div>
-
-        <input type="submit" name="submit" value="Submit">
-    </form>
+<div class="container">
+    <div class="mb-5">
+        <h1 class="mb-4">Add a new Post</h1>
+        <p class="lead">Here you can add a new Post to your Blog! Simply fill out this form and you new blog post is good to go.</p>
+    </div>
+    <div>
+        <form method='post' enctype="multipart/form-data" data-parsley-validate="" id="editArticle">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" name="title" class="form-control" required="" data-parsley-required-message="Please enter your Post title"><br>
+            </div>
+            <div class="form-group">
+                <label for="author">Author</label>
+                <input type="author" class="form-control" required="" data-parsley-required-message="Please enter your Post title" name="author"><br>
+            </div>
+            <div class="custom-file">
+                <input type="file" name="bild" class="custom-file-input" id="validatedCustomFile" required="" data-parsley-required-message="Please upload an image">
+                <label class="custom-file-label" for="validatedCustomFile">Upload an image...</label>
+            </div>
+            <div class="form-group mt-5">
+                <label for="intro_text">Introduction Text</label>
+                <textarea id='intro_text' name='intro_text'></textarea><br>
+            </div class="form-group">
+            <div>
+                <label for="content">Blog Post Content</label>
+                <textarea id='content' name='content'></textarea><br>
+            </div>
+            <input type="submit" class="text-light btn btn-default btn-lg bg-success" name="submit" value="Submit">
+        </form>
+    </div>
 </div>
 
 <script type="text/javascript">
     // Initialize CKEditor
-    CKEDITOR.inline('intro_text');
+    CKEDITOR.replace('intro_text');
 
     CKEDITOR.replace('content');
 </script>
