@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * @param string $string, $length This function cuts a long text to have a total length of 400 characters and appends (...). Used to have a unified text length on previews
+ */
 function truncate($string, $length = 200, $append = "&hellip;"): string
 {
     $string = trim($string);

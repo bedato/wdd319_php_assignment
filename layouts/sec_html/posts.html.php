@@ -5,6 +5,7 @@
     </div>
 
     <?php foreach ($alledaten as $datensatz) {
+        //loop do get all posts dynamically on the page
         $timestamp = $datensatz['date'];
         $timestamp = date("d/m/Y", strtotime($timestamp));
     ?>

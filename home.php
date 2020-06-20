@@ -1,16 +1,18 @@
 <?php
+//required files so that the page can function
 require_once('includes/config.inc.php');
 require_once('includes/loggedInStatus.inc.php');
 require_once('includes/navLogged.inc.php'); // array  with nav data
 require_once('includes/functions/functions.inc.php');
 
+//sql connection
 $conn = mysqli_connect(DBSERVER, DBUSER, DBPASSWORT, DBNAME);
 
 if ($conn === false) {
-    die('Verbindung zur Datenbank fehlgeschlagen: ' . mysqli_connect_error());
+    die('Connection to database failed. Error: ' . mysqli_connect_error());
 }
 
-// Page controler
+// Page controller
 $page = 'posts';
 if (!empty($_GET['page'])) {
     $page = $_GET['page'];
