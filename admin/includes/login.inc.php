@@ -61,9 +61,9 @@ if (isset($_POST['username']) && isset($_POST['userpassword']) && isset($_POST['
 }
 
 //Session array monitor fürs debugging:
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
+// echo '<pre>';
+// print_r($_SESSION);
+// echo '</pre>';
 
 // Fehlermeldungen ausgeben wenn vorhanden
 if ($error == true && count($errormessages) > 0) {

@@ -49,14 +49,15 @@ if (isset($_POST['title']) && isset($_POST['intro_text']) && isset($_POST['conte
             $uploadSuccess = move_uploaded_file($tmppfad, $ziel);
         }
     }
-
-    if ($formSent) {
-        mysqli_query($conn, "INSERT INTO posts(title,intro_text,content, author, img) VALUES('" . $title . "','" . $intro_text . "','" . $content . "','" . $author . "', '" . $finalImg . "') ");
-        //add Success prompt
-        header('location: admin.php?page=new_post');
-    }
 } else {
     $formSent = false;
+}
+
+//add Date value to inserts (look up comments in the privates)
+if ($formSent) {
+    mysqli_query($conn, "INSERT INTO posts(title,intro_text,content, author, img) VALUES('" . $title . "','" . $intro_text . "','" . $content . "','" . $author . "', '" . $finalImg . "') ");
+    //add Success prompt
+    header('location: admin.php?page=new_post');
 }
 
 if (count($errormessages) > 0) {

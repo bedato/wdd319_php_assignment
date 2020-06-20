@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-    <a class="navbar-brand" href="/index.php">Admin</a>
+<nav class="navbar navbar-expand-md navbar-light bg-light border-bottom">
+    <a class="navbar-brand" href="admin.php">Admin</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,8 +30,8 @@
     </div>
     <div>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="admin.php?page=logout">Logout</a>
+            <li class="nav-item bg-danger rounded">
+                <a class="nav-link" href="admin.php?page=logout"><i class="fas fa-power-off"></i> Logout</a>
             </li>
         </ul>
     </div>

@@ -49,21 +49,21 @@ if (isset($_POST['title']) && isset($_POST['intro_text']) && isset($_POST['conte
             $uploadSuccess = move_uploaded_file($tmppfad, $ziel);
         }
     }
-
-    if ($formSent) {
-
-        $sql = "UPDATE `posts` SET `title` ='" . $title . "' , `intro_text` = '" . $intro_text . "', `content` = '" . $content . "', `author` = '" . $author . "', `img` = '" . $finalImg . "' WHERE `id` = '" . $currentArticle . "'";
-
-        if (mysqli_query($conn, $sql)) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "" . mysqli_error($conn);
-        }
-        //add Success prompt
-        header('location: admin.php?page=posts');
-    }
 } else {
     $formSent = false;
+}
+
+if ($formSent == true) {
+
+    $sql = "UPDATE `posts` SET `title` ='" . $title . "' , `intro_text` = '" . $intro_text . "', `content` = '" . $content . "', `author` = '" . $author . "', `img` = '" . $finalImg . "' WHERE `id` = '" . $currentArticle . "'";
+
+    if (mysqli_query($conn, $sql)) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "" . mysqli_error($conn);
+    }
+    //add Success prompt
+    header('location: admin.php?page=posts');
 }
 
 if (count($errormessages) > 0) {
