@@ -1,28 +1,21 @@
 <?php
-/*
- Change Username
-
- - Check Current Session username
- - Check if the input is set
- - Check if the isset name is not already in the DB
- - Check if the isset name is valid through the same filters we had in the register page
- - If everything is true: change the username to the input one.
- - Else: error messages and nothing happens.
-
- */
-
+//Change Username. 
+//Setup Variables
 $submitNewUsername = true;
 $current_username = $_SESSION['username'];
 $new_username_input = isset($_POST['username_new']) ? $_POST['username_new'] : '';
 $error_messages = [];
 $illegal = "#$%^&*()+=-[]';,./{}|:<>?~";
 
+//Check if the input field has value
 if (isset($_POST['username_new'])) {
 
+    //sqlinjection preparation
     $username_new = mysqli_real_escape_string($conn, $_POST['username_new']);
-
+    //Look for the new username in the db (can be used to check if it already exists).
     $resultUsername = $conn->query("SELECT * FROM users WHERE username='" . $username_new . "'");
 
+    //Validation: check if name input has: value, illegal character and if it already exists.
     if (empty($new_username_input)) {
         $error_messages[] = 'Please enter your new username';
         $submitNewUsername = false;
@@ -38,9 +31,11 @@ if (isset($_POST['username_new'])) {
         $submitNewUsername = false;
     }
 } else {
+    //if validation failed the submit will not be activated, form will not be send.
     $submitNewUsername = false;
 }
 
+//if validation passed: put out success msg, update the sql entry. if the entry failed: show error (this has to be removed if the website would get online)
 if ($submitNewUsername == true) {
     $successmsg = 'Thank you! your username changed!';
     $sql = "UPDATE `users` SET `username` = '" . $username_new . "' WHERE `users` . `username` = '" . $current_username . "'";
@@ -50,13 +45,16 @@ if ($submitNewUsername == true) {
         echo "Error: " . $sql . "" . mysqli_error($conn);
     }
 
-    echo '<p style="color:red;">';
-    echo '<br>' . $successmsg;
-    echo '</p>';
+    //debug log
+    // echo '<p style="color:red;">';
+    // echo '<br>' . $successmsg;
+    // echo '</p>';
 
+    //redirect to logout. on next login the credentials will be updated
     header('Location: home.php?page=logout');
 }
 
+//show error messages if there are any
 if (count($error_messages) > 0) {
     echo '<p style="color:red;">';
     echo implode('<br>', $error_messages);

@@ -1,6 +1,5 @@
 <?php
 include('includes/editArticle.inc.php');
-include('includes/deleteComment.inc.php');
 ?>
 <div class="container">
     <div class="mb-5">

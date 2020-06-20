@@ -1,6 +1,6 @@
 <?php
-
-$sql = "SELECT * FROM `posts`";
+//Pagination params
+$sql = "SELECT * FROM `posts` ORDER BY id DESC";
 $results_per_page = 5;
 $res1 = mysqli_query($conn, $sql);
 $number_of_results = mysqli_num_rows($res1);
@@ -17,10 +17,10 @@ if ($page_nr == 1) {
     $disabledPrev = 'disabled';
 }
 
-
+//updated pagination parameters
 $this_page_first_result = ($page_nr - 1) * $results_per_page;
 
-$sql = "SELECT * FROM `posts` LIMIT " . $this_page_first_result . ',' . $results_per_page;
+$sql = "SELECT * FROM `posts` ORDER BY id DESC LIMIT " . $this_page_first_result . ',' . $results_per_page;
 $res1 = mysqli_query($conn, $sql);
 
 if ($res1 === false) {
@@ -28,6 +28,7 @@ if ($res1 === false) {
 }
 
 $alledaten = mysqli_fetch_all($res1, MYSQLI_ASSOC);
+//dynamically show all posts
 ?>
 <div class="container">
     <div class="d-flex justify-content-center flex-wrap">

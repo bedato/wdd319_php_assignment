@@ -4,15 +4,18 @@
         <?php
         if (isset($_POST['submit-search'])) {
             $search = mysqli_real_escape_string($conn, $_POST['search']);
-            //SQL query statement
+            //SQL query statement the search is reliable on this
             $sql = "SELECT * FROM posts WHERE title LIKE '%$search%' OR content LIKE '%$search%' OR author LIKE '%$search%' OR date LIKE '%$search%'";
+            //get search results
             $result = mysqli_query($conn, $sql);
             $queryResult = mysqli_num_rows($result);
 
+            //summary of the found pages
             echo '<div class="my-3 pb-3">';
             echo '<p class="lead">There are ' . $queryResult . ' results</p>';
             echo '</div>';
 
+            //dynamically put the results on the search page
             if ($queryResult > 0) {
                 while ($row = mysqli_fetch_assoc($result)) { ?>
                     <a class="text-dark" href="home.php?page=article&post_id=<?php echo $row['id']; ?>">
@@ -27,6 +30,7 @@
                     </a>
         <?php  }
             } else {
+                //if there are no search results
                 echo '<div class="my-3 pb-3">';
                 echo '<p class="lead">There are no results matching your search</p>';
                 echo '</div>';

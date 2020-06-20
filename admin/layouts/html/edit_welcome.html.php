@@ -1,6 +1,7 @@
 <?php
 include('includes/editWelcome.inc.php');
 
+//get the about page with prepared statement
 $wlc_sql = "SELECT * FROM pages WHERE page = ?";
 $id = "welcome";
 $stmt = mysqli_stmt_init($conn);
@@ -16,6 +17,8 @@ $stmt = mysqli_stmt_init($conn);
     } else {
         mysqli_stmt_bind_param($stmt, "s", $id);
         mysqli_stmt_execute($stmt);
+
+        //get result and paste it into the DOM
         $result = mysqli_stmt_get_result($stmt);
         $row = mysqli_fetch_assoc($result); ?>
 

@@ -1,9 +1,12 @@
 <?php
+//Delete article security mesurment to ask the user if he is sure to delete the comment
 $currentComment = $_GET['comment_id'];
 $cmnt_sql = "SELECT * FROM comments WHERE id = $currentComment";
 $cmnt_res = mysqli_query($conn, $cmnt_sql);
 $cmnt_data = mysqli_fetch_all($cmnt_res, MYSQLI_ASSOC);
 $delete = isset($_POST['delete']) ? $_POST['delete'] : '';
+
+//if the delete POST data is set the sql prompts will trigger to delete the selected post
 if ($delete) {
     $sql = "DELETE FROM comments WHERE id = $currentComment";
     $delres = mysqli_query($conn, $sql);

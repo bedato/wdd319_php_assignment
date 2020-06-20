@@ -1,4 +1,8 @@
 <?php
+
+/**
+ * @param string $str Takes string as parameter to sanitize it so that there can't be any html code injected.
+ */
 function sanitizer($str): string
 {
     $cleanStr = filter_var($str, FILTER_SANITIZE_STRING);
@@ -6,6 +10,9 @@ function sanitizer($str): string
     return $cleanStr;
 }
 
+/**
+ * @param string $string, $length This function cuts a long text to have a total length of 400 characters and appends (...). Used to have a unified text length on previews
+ */
 function truncate($string, $length = 400, $append = "&hellip;"): string
 {
     $string = trim($string);
@@ -19,6 +26,10 @@ function truncate($string, $length = 400, $append = "&hellip;"): string
     return $string;
 }
 
+
+/**
+ * @param array $page, $conn Used to get the sql table data from the prefered table.
+ */
 function pageQuery($page, $conn): array
 {
     $sqlC = "SELECT * FROM `pages` WHERE `page` = '$page'";

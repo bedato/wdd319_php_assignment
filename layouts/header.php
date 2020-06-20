@@ -1,5 +1,4 @@
 <?php
-require_once('includes/functions/functions.inc.php');
 $contents = pageQuery('header_public', $conn);
 ?>
 <header class="masthead" id="home">

@@ -1,5 +1,5 @@
 <?php
-// Navigations-daten kommen hier hinein und können einfach angepasst werden
+//Nav array for pages
 $mainNav = array(
 	array('title' => 'Home', 'link' => 'welcome'),
 	array('title' => 'About', 'link' => 'about'),

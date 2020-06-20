@@ -2,8 +2,8 @@
 require_once('includes/config.inc.php');
 require_once('includes/functions/functions.inc.php');
 require_once('includes/nav.inc.php'); // array  with nav data
-//require_once('includes/functions.inc.php');
 
+//sql connection
 $conn = mysqli_connect(DBSERVER, DBUSER, DBPASSWORT, DBNAME);
 
 if ($conn === false) {
