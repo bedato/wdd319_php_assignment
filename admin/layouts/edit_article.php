@@ -40,9 +40,7 @@ include('includes/deleteComment.inc.php');
                 <label for="content">Blog Post Content: </label>
                 <textarea id='content' class="form-control" name='content'><?= $row['content'] ?></textarea><br>
             </div>
-            <div class="mb-4">
-                <input type="submit" name="submit" class="" value="Update Blog">
-            </div>
+            <input type="submit" name="submit" class="" value="Update Blog">
         </form>
     </div>
     <hr>
