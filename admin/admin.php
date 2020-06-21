@@ -1,8 +1,9 @@
 <?php
 require_once('includes/loggedInStatus.inc.php');
 require_once('includes/functions/functions.inc.php');
+require_once('includes/config.inc.php');
 //DB Connection
-$conn = mysqli_connect('localhost', 'root', 'root', 'blog');
+$conn = mysqli_connect(DBSERVER_ADMIN, DBUSER_ADMIN, DBPASSWORT_ADMIN, DBNAME_ADMIN);
 
 //Remove before releasing for security reasons
 if ($conn === false) {
