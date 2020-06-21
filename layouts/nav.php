@@ -27,10 +27,8 @@
                 <div class="dropdown-menu p-4 w-100">
                     <h3 class="mb-3">Login: </h1>
                         <form class="form-horizontal" method="post" accept-charset="UTF-8" data-parsley-validate="" id="loginForm">
-
                             <input type="text" name="username" id="username" class="form-control mb-3" placeholder="Username" required="" data-parsley-required-message="Enter your username">
                             <input type="password" name="userpasswort" id="password" class="form-control my-3" placeholder="Password" required="" data-parsley-required-message="Enter your password">
-
                             <input type="submit" id="sendLoginForm" name="submit" class="btn btn-dark btn-block" value="Login">
                         </form>
                 </div>
@@ -41,3 +39,9 @@
         </ul>
     </div>
 </nav>
+<?php
+if ($error == true && count($errormessages) > 0) {
+    echo '<div class="alert alert-danger" role="alert">';
+    echo implode('<br>', $errormessages);
+    echo '</div>';
+} ?>

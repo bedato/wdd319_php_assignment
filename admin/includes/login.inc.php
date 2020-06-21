@@ -57,7 +57,7 @@ if (isset($_POST['username']) && isset($_POST['userpassword']) && isset($_POST['
         } else {
             //validation failed: error output
             $error = true;
-            $errormessages[] = 'Username oder Passwort nicht korrekt';
+            $errormessages[] = 'Username or Password do not match!';
         }
     }
 } else {
@@ -69,8 +69,3 @@ if (isset($_POST['username']) && isset($_POST['userpassword']) && isset($_POST['
 // echo '<pre>';
 // print_r($_SESSION);
 // echo '</pre>';
-
-// Fehlermeldungen ausgeben wenn vorhanden
-if ($error == true && count($errormessages) > 0) {
-    echo implode('<br>', $errormessages);
-}
